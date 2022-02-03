@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <% if enhanced_cart.empty? %>
-          <div class="alert alert-warning" role="alert">Your cart is empty! =>
+          <div class="alert alert-warning" role="alert">Your cart is empty! <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
           <%= link_to 'Back to products', products_path %></div>
         <% else %>
           <% enhanced_cart.each do |item| %>
