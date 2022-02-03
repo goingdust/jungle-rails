@@ -1,0 +1,17 @@
+main section.login {
+  .login-form {
+    display: flex;
+    flex-direction: column;
+
+    .login-input {
+      margin: 1em 2em;
+      width: 15em;
+    }
+
+    .login-btn {
+      margin-left: 5.2em;
+      margin-top: 1em;
+      width: 8em;
+    }
+  }
+}
