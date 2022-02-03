@@ -1,0 +1,9 @@
+main section.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    margin-top: 1em;
+  }
+}
