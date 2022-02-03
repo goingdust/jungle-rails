@@ -32,14 +32,14 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if current_user %>
-            Signed in as <%= current_user.first_name %> | <%= link_to 'Logout', '/logout' %>
+            <%= link_to "#{current_user.first_name} | Logout", '/logout' %>
           <% else %>
             <%= link_to 'Login', '/login' %>
-          <% end %>
         </li>
         <li>
           <%= link_to 'Sign Up', '/signup' %>
         </li>
+          <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
