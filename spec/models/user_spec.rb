@@ -46,5 +46,29 @@ RSpec.describe User, type: :model do
         expect(@user2.errors.full_messages).to include('Email has already been taken')
       end
     end
+
+    context 'password' do
+      it 'should include an error if empty' do
+        @user2 = User.new(first_name: 'Inosuke', last_name: 'Hashibara', email: 'fightme@mail.com',
+                          password_confirmation: 'tanjiro')
+        @user2.save
+        expect(@user2.errors.full_messages).to include("Password can't be blank")
+      end
+    end
+
+    context 'password confirmation' do
+      it 'should include an error if empty' do
+        @user2 = User.new(first_name: 'Inosuke', last_name: 'Hashibara', email: 'fightme@mail.com', password: 'tanjiro')
+        @user2.save
+        expect(@user2.errors.full_messages).to include("Password confirmation can't be blank")
+      end
+
+      it 'should include an error if password does not match confirmation' do
+        @user2 = User.new(first_name: 'Inosuke', last_name: 'Hashibara', email: 'fightme@mail.com',
+                          password: 'tanjiro', password_confirmation: 'zenitsu')
+        @user2.save
+        expect(@user2.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+    end
   end
 end
