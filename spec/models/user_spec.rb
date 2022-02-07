@@ -54,6 +54,13 @@ RSpec.describe User, type: :model do
         @user2.save
         expect(@user2.errors.full_messages).to include("Password can't be blank")
       end
+
+      it 'should include an error if not long enough' do
+        @user2 = User.new(first_name: 'Inosuke', last_name: 'Hashibara', email: 'fightme@mail.com', password: 'tanji',
+                          password_confirmation: 'tanji')
+        @user2.save
+        expect(@user2.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+      end
     end
 
     context 'password confirmation' do
@@ -63,7 +70,7 @@ RSpec.describe User, type: :model do
         expect(@user2.errors.full_messages).to include("Password confirmation can't be blank")
       end
 
-      it 'should include an error if password does not match confirmation' do
+      it 'should include an error if confirmation does not match password' do
         @user2 = User.new(first_name: 'Inosuke', last_name: 'Hashibara', email: 'fightme@mail.com',
                           password: 'tanjiro', password_confirmation: 'zenitsu')
         @user2.save
