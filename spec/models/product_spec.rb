@@ -14,7 +14,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'name' do
-      it 'should return an error if empty' do
+      it 'should include an error if empty' do
         @product = Product.new(price_cents: 100_000, quantity: 5, category_id: 1)
         @product.save
         expect(@product.errors.full_messages).to include("Name can't be blank")
@@ -22,7 +22,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'price' do
-      it 'should return an error if empty' do
+      it 'should include an error if empty' do
         @product = Product.new(name: 'Smartwatch', quantity: 5, category_id: 1)
         @product.save
         expect(@product.errors.full_messages).to include("Price can't be blank")
@@ -30,7 +30,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'quantity' do
-      it 'should return an error if empty' do
+      it 'should include an error if empty' do
         @product = Product.new(name: 'Smartwatch', price_cents: 100_000, category_id: 1)
         @product.save
         expect(@product.errors.full_messages).to include("Quantity can't be blank")
@@ -38,7 +38,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'category' do
-      it 'should return an error if empty' do
+      it 'should include an error if empty' do
         @product = Product.new(name: 'Smartwatch', price_cents: 100_000, quantity: 5)
         @product.save
         expect(@product.errors.full_messages).to include("Category can't be blank")
