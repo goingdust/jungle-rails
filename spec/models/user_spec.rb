@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'Validation' do
+  describe 'Validations' do
     before do
       @user1 = User.new(first_name: 'Tanjiro', last_name: 'Kamado', email: 'waterwheel@mail.com', password: 'nezuko',
                         password_confirmation: 'nezuko')
