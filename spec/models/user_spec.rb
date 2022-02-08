@@ -85,14 +85,18 @@ RSpec.describe User, type: :model do
         expect(@user1.authenticate_with_credentials('waterwheel@mail.com', 'nezuko')).to eq(@user1)
       end
 
-      it 'should return a user if correct email has whitespace before or after' do
+      it 'should return a user if email is correct but has whitespace before or after' do
         expect(@user1.authenticate_with_credentials('  waterwheel@mail.com ', 'nezuko')).to eq(@user1)
+      end
+
+      it 'should return a user if email is correct but in different case' do
+        expect(@user1.authenticate_with_credentials('watERwhEeL@mail.com', 'nezuko')).to eq(@user1)
       end
     end
 
     context 'failure' do
       it 'should return nil if email incorrect' do
-        expect(@user1.authenticate_with_credentials('water@mail.com', 'nezuko')).to be_nil
+        expect(@user1.authenticate_with_credentials('demonslayer@mail.com', 'nezuko')).to be_nil
       end
 
       it 'should return nil if password incorrect' do
