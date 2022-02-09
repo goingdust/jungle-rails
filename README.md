@@ -2,7 +2,18 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-## Additional Steps for Apple M1 Machines
+## Project Context
+
+This app was passed on to me partially finished. I fixed the bugs, wrote model and feature specs, and built new features. The features I implemented are:
+
+* User authentication
+* Products sold-out badge
+* Empty cart display
+* User email attached to orders
+* Admin HTTP auth login/password
+* Admin create and list all categories
+
+## Pre-Setup Steps for Apple M1 Machines
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
 1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
@@ -18,7 +29,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 5. Create .env file based on .env.example
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
-8. Run `bin/rails s -b 0.0.0.0` to start the server
+8. Run `bin/rails s` to start the server
 
 ## Stripe Testing
 
