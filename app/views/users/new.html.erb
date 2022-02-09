@@ -5,6 +5,14 @@
 
   
     <%= form_for :user, url: '/users' do |f| %>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-danger">
+          <% msg.split(', ').each do |error| %>
+            <strong><%= error %><br></strong>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="form-group signup-form">
         First Name: <%= f.text_field :first_name, class: 'form-control signup-input' %>
         Last Name: <%= f.text_field :last_name, class: 'form-control signup-input' %>
