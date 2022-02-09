@@ -13,6 +13,12 @@ This app was passed on to me partially finished. I fixed the bugs, wrote model a
 * Admin HTTP auth login/password
 * Admin create and list all categories
 
+!["Category products index page"](https://github.com/goingdust/jungle-rails/blob/main/public/docs/category-show.png)
+
+!["Signup field errors"](https://github.com/goingdust/jungle-rails/blob/main/public/docs/signup-error.png)
+
+!["Cart checkout stripe payment"](https://github.com/goingdust/jungle-rails/blob/main/public/docs/cart-checkout-payment.png)
+
 ## Pre-Setup Steps for Apple M1 Machines
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
