@@ -1,6 +1,13 @@
 class CartsController < ApplicationController
-
   def show
+    user = User.find(session[:user_id]) if session[:user_id]
+    if user
+      @user_name = "#{user.first_name} #{user.last_name}"
+      @user_email = user.email
+    else
+      @user_name = 'Khurram Virani'
+      @user_email = 'kvirani@gmail.com'
+    end
   end
 
   def add_item
@@ -24,5 +31,4 @@ class CartsController < ApplicationController
     cart.delete(product_id) if cart[product_id] < 1
     update_cart cart
   end
-
 end
