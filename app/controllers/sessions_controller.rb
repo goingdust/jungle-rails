@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.authenticate_with_credentials(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
+    @user = User.authenticate_with_credentials(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect_to '/'
     else
-      redirect_to '/login'
+      redirect_to '/login', notice: 'User not found'
     end
   end
 

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   scope :ci_find, ->(attribute, value) { where("lower(#{attribute}) = ?", value.downcase) }
 
-  def authenticate_with_credentials(email, password)
+  def self.authenticate_with_credentials(email, password)
     user = User.ci_find('email', email.strip)
     if user.empty?
       nil
